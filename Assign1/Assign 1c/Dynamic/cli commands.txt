@@ -1,0 +1,17 @@
+R1(config)#access-list 1 permit 10.0.0.10 0.0.0.0
+R1(config)#access-list 1 permit 10.0.0.20 0.0.0.0
+R1(config)#access-list 1 deny any
+R1(config)#ip nat pool ccna 50.0.0.1 50.0.0.2 netmask 255.0.0.0
+R1(config)#ip nat inside source list 1 pool ccna
+R1(config)#interface fastEthernet0/0
+R1(config-if)#ip nat inside
+R1(config-if)#exit
+R1(config)#interface serial2/0
+R1(config-if)#ip nat outside
+R1(config-if)#exit
+R1(config)#ip route 200.0.0.0 255.255.255.0 100.0.0.2
+R1(config)#exit
+
+
+
+link ==> https://www.computernetworkingnotes.com/ccna-study-guide/how-to-configure-dynamic-nat-in-cisco-router.html
